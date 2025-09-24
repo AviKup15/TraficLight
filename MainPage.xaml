@@ -2,19 +2,32 @@
 <ContentPage
     x:Class="TraficLight.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-
-    <Grid ColumnDefinitions="*,*" RowDefinitions="auto,auto">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:m="clr-namespace:TraficLight.Models"
+    xmlns:vm="clr-namespace:TraficLight.ViewModels"
+    x:DataType="vm:MainPageVM">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,*" RowSpacing="5">
+        <Frame>
+            <BoxView BackgroundColor="{Binding RedColor}" />
+        </Frame>
+        <Frame Grid.Row="1">
+            <BoxView BackgroundColor="{Binding YellowColor}" />
+        </Frame>
+        <Frame Grid.Row="2">
+            <BoxView BackgroundColor="{Binding GreenColor}" />
+        </Frame>
         <Button
-            Margin="5"
-            FontSize="30"
-            Text="save" />
+      Grid.Row="3"
+      Command="{Binding ChangeLightCommand}"
+      Text="{x:Static m:Strings.ChangeLightText}" />
         <Button
-            Grid.Column="1"
-            Margin="5"
-            FontSize="30"
-            Text="cancel" />
-
+      Grid.Row="4"
+      Command="{Binding SwitchAutoChangeCommand}"
+      Text="{Binding SwitchChangeLightText}" />
+        <Image
+      Grid.Row="5"
+      HorizontalOptions="Center"
+      Source="{Binding LightImage}"
+      VerticalOptions="Center" />
     </Grid>
-
 </ContentPage>

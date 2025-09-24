@@ -4,7 +4,7 @@ namespace TraficLight
 {
     public static class MauiProgram
     {
-       //fydfgdgdg
+      
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
