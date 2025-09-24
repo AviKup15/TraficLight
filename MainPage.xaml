@@ -6,7 +6,7 @@
     xmlns:m="clr-namespace:TraficLight.Models"
     xmlns:vm="clr-namespace:TraficLight.ViewModels"
     x:DataType="vm:MainPageVM">
-    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,*" RowSpacing="5">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,*"  RowSpacing="5">
         <Frame>
             <BoxView BackgroundColor="{Binding RedColor}" />
         </Frame>
@@ -24,8 +24,17 @@
       Grid.Row="4"
       Command="{Binding SwitchAutoChangeCommand}"
       Text="{Binding SwitchChangeLightText}" />
+        <Entry 
+        Grid.Row="5" Grid.Column="0"
+        Placeholder="Enter seconds"
+        Keyboard="Numeric"
+        Text="{Binding TimerInput}" />
+        <Button 
+        Grid.Row="6" Grid.Column="1"
+        Text="Set Timer"
+        Command="{Binding SetTimerCommand}" />
         <Image
-      Grid.Row="5"
+      Grid.Row="7"
       HorizontalOptions="Center"
       Source="{Binding LightImage}"
       VerticalOptions="Center" />
